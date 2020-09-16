@@ -1,3 +1,8 @@
-module.exports.home=function(req,res){
-    res.end("<h1>Codeial</h1>")
+module.exports.home = function (req, res) {
+
+    console.log(req.cookies);
+    return res.render('home', {
+        title: "Codeial-Home",
+
+    })
 }

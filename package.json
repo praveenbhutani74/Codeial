@@ -4,7 +4,6 @@
   "description": "Social Website",
   "main": "index.js",
   "scripts": {
-
     "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,6 +13,10 @@
   "author": "Praveen Bhutani",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "mongoose": "^5.10.5"
   }
 }
