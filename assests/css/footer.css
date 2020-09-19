@@ -1,0 +1,17 @@
+footer {
+  width: 100%;
+  background-color: #3a222d;
+  height: 80px;
+  margin: 0;
+  display: flex; }
+  footer h3 {
+    font-size: 20px;
+    color: white;
+    margin-left: 5px; }
+  footer ul {
+    list-style-type: none; }
+    footer ul li a {
+      font-size: 20px;
+      color: white;
+      text-decoration: none;
+      flex-direction: column; }

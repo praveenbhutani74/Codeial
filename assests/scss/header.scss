@@ -1,0 +1,45 @@
+header {
+    display: inline-flex;
+    height: 50px;
+    background-color: blue;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    
+
+
+    h2 {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: white;
+        margin-left: 20px;
+        margin-top: 10px;
+        font-weight: 400;
+
+    }
+
+    ul {
+
+        // justify-content: end;
+        // align-items: flex-end;
+        list-style-type: none;
+
+
+
+
+
+        li {
+            display: inline-block;
+            // display: flex;
+            // justify-content: end;
+            // align-items: flex-end;
+
+
+            a {
+                text-decoration: none;
+                font-weight: 900;
+                padding: 10;
+                color: white;
+            }
+        }
+    }
+}
