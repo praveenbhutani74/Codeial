@@ -6,3 +6,14 @@ body {
   font-style: italic; }
   body #layout-main {
     height: 100%; }
+  body #feed-posts {
+    text-align: left;
+    margin-left: 38px;
+    border-radius: 5px;
+    padding: 20px;
+    box-sizing: border-box;
+    cursor: pointer; }
+    body #feed-posts *:focus {
+      outline: none; }
+    body #feed-posts textarea:focus {
+      background-color: rgba(0, 0, 0, 0.15); }

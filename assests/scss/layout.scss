@@ -9,4 +9,32 @@ body {
 
         height: 100%;
     }
+
+    #feed-posts {
+
+        text-align: left;
+        margin-left: 38px;
+        border-radius: 5px;
+        padding: 20px;
+        box-sizing: border-box;
+        cursor: pointer;
+
+        *:focus {
+            outline: none;
+        }
+
+        textarea:focus {
+            background-color: rgba(0, 0, 0, 0.15);
+
+        }
+
+
+
+
+    }
+
+
+
+
+
 }
