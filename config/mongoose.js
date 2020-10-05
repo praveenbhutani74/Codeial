@@ -1,6 +1,13 @@
 const mongoose = require('mongoose');
 mongoose.set('useCreateIndex', true);
-mongoose.connect('mongodb://localhost/codeial_development');
+mongoose.connect('mongodb://localhost/codeial_development', {
+
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    }).then(() => console.log('DB Connected!'))
+    .catch(err => {
+        console.log('err');
+    });
 
 const db = mongoose.connection;
 

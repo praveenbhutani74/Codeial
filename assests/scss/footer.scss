@@ -3,10 +3,12 @@ footer {
 
 
     width: 100%;
-    background-color: #3a222d;
+    background-color: lightness($color: #000000);
     height: 80px;
     margin: 0;
     display: flex;
+
+
 
     h3 {
         font-size: 20px;

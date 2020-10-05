@@ -1,19 +1,84 @@
-body {
-  margin: 0;
-  text-align: center;
-  font-weight: 400;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-style: italic; }
-  body #layout-main {
+#home-container {
+  display: flex; }
+  #home-container #layout-main {
     height: 100%; }
-  body #feed-posts {
+  #home-container #feed-posts {
+    width: 70%;
+    margin: 0;
     text-align: left;
     margin-left: 38px;
     border-radius: 5px;
     padding: 20px;
     box-sizing: border-box;
     cursor: pointer; }
-    body #feed-posts *:focus {
+    #home-container #feed-posts *:focus {
       outline: none; }
-    body #feed-posts textarea:focus {
+    #home-container #feed-posts textarea:focus {
       background-color: rgba(0, 0, 0, 0.15); }
+  #home-container #post-list {
+    width: 51.7%;
+    margin-left: -37px; }
+    #home-container #post-list ul {
+      list-style-type: none; }
+      #home-container #post-list ul li {
+        padding: 10px;
+        box-shadow: 1px 1px 1px 1px #888888;
+        border-radius: 5px;
+        margin-top: 5px; }
+        #home-container #post-list ul li a {
+          float: right;
+          font: bold 11.1px Arial;
+          text-decoration: none;
+          background-color: #EEEEEE;
+          color: #333333;
+          padding: 5px 10px 5px 10px;
+          border-top: 1px solid #CCCCCC;
+          border-right: 1px solid #333333;
+          border-bottom: 1px solid #333333;
+          border-left: 1px solid #CCCCCC;
+          margin-top: 10px;
+          margin-left: -10px; }
+        #home-container #post-list ul li p {
+          font-size: 20px;
+          margin-left: 5px; }
+        #home-container #post-list ul li img {
+          height: 40px;
+          width: 40px;
+          border-radius: 50%; }
+        #home-container #post-list ul li .post-comment {
+          margin: auto;
+          box-sizing: border-box; }
+          #home-container #post-list ul li .post-comment input[type=text] {
+            width: 80%;
+            height: 2.5%;
+            padding-left: 10;
+            box-sizing: border-box;
+            border-radius: 10%;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-top-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+            border-top-right-radius: 20px; }
+          #home-container #post-list ul li .post-comment .post-comments-list a {
+            float: right;
+            font: bold 11.1px Arial;
+            text-decoration: none;
+            background-color: #EEEEEE;
+            color: #333333;
+            padding: 2px 6px 2px 6px;
+            border-top: 1px solid #CCCCCC;
+            border-right: 1px solid #333333;
+            border-bottom: 1px solid #333333;
+            border-left: 1px solid #CCCCCC;
+            margin-top: -50px; }
+  #home-container #user-friends {
+    width: 30%;
+    padding: 10px;
+    border-left: 1px solid grey; }
+    #home-container #user-friends a {
+      text-decoration: none !important;
+      color: blue;
+      font-size: 18px;
+      padding: 5;
+      font-weight: 400;
+      font-family: 'Courier New', Courier, monospace; }
