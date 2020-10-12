@@ -15,17 +15,17 @@
       outline: none; }
     #home-container #feed-posts textarea:focus {
       background-color: rgba(0, 0, 0, 0.15); }
-  #home-container #post-list {
+  #home-container #post-list-container {
     width: 51.7%;
     margin-left: -37px; }
-    #home-container #post-list ul {
+    #home-container #post-list-container ul {
       list-style-type: none; }
-      #home-container #post-list ul li {
+      #home-container #post-list-container ul li {
         padding: 10px;
         box-shadow: 1px 1px 1px 1px #888888;
         border-radius: 5px;
         margin-top: 5px; }
-        #home-container #post-list ul li a {
+        #home-container #post-list-container ul li a {
           float: right;
           font: bold 11.1px Arial;
           text-decoration: none;
@@ -38,19 +38,19 @@
           border-left: 1px solid #CCCCCC;
           margin-top: 10px;
           margin-left: -10px; }
-        #home-container #post-list ul li p {
+        #home-container #post-list-container ul li p {
           font-size: 20px;
           margin-left: 5px; }
-        #home-container #post-list ul li img {
+        #home-container #post-list-container ul li img {
           height: 40px;
           width: 40px;
           border-radius: 50%; }
-        #home-container #post-list ul li .post-comment {
+        #home-container #post-list-container ul li .post-comment {
           margin: auto;
           box-sizing: border-box; }
-          #home-container #post-list ul li .post-comment input[type=text] {
+          #home-container #post-list-container ul li .post-comment input[type=text] {
             width: 80%;
-            height: 2.5%;
+            height: 2.9%;
             padding-left: 10;
             box-sizing: border-box;
             border-radius: 10%;
@@ -59,7 +59,7 @@
             border-bottom-right-radius: 20px;
             border-bottom-left-radius: 20px;
             border-top-right-radius: 20px; }
-          #home-container #post-list ul li .post-comment .post-comments-list a {
+          #home-container #post-list-container ul li .post-comment .post-comments-list a {
             float: right;
             font: bold 11.1px Arial;
             text-decoration: none;

@@ -1,4 +1,6 @@
 const User = require('../models/user');
+const fs=require('fs');
+const path=require('path');
 
 
 module.exports.profile = function (req, res) {
@@ -10,25 +12,50 @@ module.exports.profile = function (req, res) {
     });
 
 }
-module.exports.update = function (req, res) {
+
+
+module.exports.update = async function (req, res) {
 
 
     if (req.user.id == req.params.id) {
-        User.findByIdAndUpdate(req.params.id, req.body, function (err, user) {
+        try{
+            let user= await User.findById(req.params.id);
+            User.uploadedAvatar(req,res,function(err){
+             if(err){
+                 console.log(err);
+                 return;
+             }
+             
+            
+                user.name=req.body.name;
+                user.email=req.body.email;
 
-            return res.redirect('back');
-        })
+                if(req.file){
+                    if(user.avatar){
+                    fs.unlinkSync(path.join(__dirname,'..',user.avatar));
+                    }
+                    user.avatar=User.avatarPath + '/' + req.file.filename;
+                }
+                user.save();
+                return res.redirect('back');
 
-    } else {
-        return res.status(401).send('Unauthorized');
+            });
+            
+        }catch(err){
+        req.flash('error', err);
+        return res.redirect('back');
+        }
+
+
+    }else{
+        req.flash('error', 'Unauthorized!');
+             return res.status(401).send('Unauthorized');
+
     }
-
 }
 
 
 
-
-// render the sign up page
 module.exports.signUp = function (req, res) {
     if (req.isAuthenticated()) {
         return res.redirect('/users/profile');
@@ -55,8 +82,7 @@ module.exports.signIn = function (req, res) {
 // get the sign up data
 module.exports.create = function (req, res) {
     if (req.body.password != req.body.confirm_password) {
-
-        req.flash('error', 'Password and Confirm Password do not match9')
+        req.flash('error', 'Passwords do not match');
         return res.redirect('back');
     }
 
@@ -65,7 +91,7 @@ module.exports.create = function (req, res) {
     }, function (err, user) {
         if (err) {
             req.flash('error', err);
-            return;
+            return
         }
 
         if (!user) {
@@ -74,10 +100,11 @@ module.exports.create = function (req, res) {
                     req.flash('error', err);
                     return
                 }
-                req.flash('success', 'User signed up succesfully')
+
                 return res.redirect('/users/sign-in');
             })
         } else {
+            req.flash('success', 'You have signed up, login to continue!');
             return res.redirect('back');
         }
 
@@ -87,14 +114,14 @@ module.exports.create = function (req, res) {
 
 // sign in and create a session for the user
 module.exports.createSession = function (req, res) {
-
-    req.flash('success', 'You have succesfully Logged In');
+    req.flash('success', 'Logged in Successfully');
     return res.redirect('/');
 }
 
 module.exports.destroySession = function (req, res) {
-    req.flash('success', 'You have succesfully Logged Out');
     req.logout();
+    req.flash('success', 'You have logged out!');
+
 
     return res.redirect('/');
 }

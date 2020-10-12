@@ -9,16 +9,19 @@
     <section id="main-sec">
 
 
+        <img src="<%=user.avatar %>" alt="<%= user.name %>" width="100" style="margin-top: 100px;">
 
-        <h1>Codeial Profile Page </h1>
+     
 
         <% if(user.id==profile_user.id){%>
 
 
-        <form action="/users/update/<%= profile_user.id%>" method="POST" id="form">
-            <input type="text" name="name" placeholder="Your Name" value="<%= profile_user.name%>" required><br>
-            <input type="email" name="email" placeholder="Your Email" value="<%= profile_user.email%>" required><br>
+        <form action="/users/update/<%= profile_user.id%>"   method="POST" enctype="multipart/form-data" >
+            <input type="text" name="name" placeholder="Your Name" value="<%= profile_user.name%>" required>
+            <input type="email" name="email" placeholder="Your Email" value="<%= profile_user.email%>" required>
+            <input type="file" name="avatar" placeholder="Profile Picture">
             <input type="submit" value="Update">
+            
         </form>
 
         <%}else{%>

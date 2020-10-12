@@ -1,4 +1,4 @@
-\<html>
+<html>
     <head>
         <title>
             <%= title  %>
@@ -6,7 +6,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
         <link rel="stylesheet" href="/css/layout.css">
         <link rel="stylesheet" href="/css/header.css">
         <link rel="stylesheet" href="/css/footer.css">
@@ -48,12 +49,7 @@
                     text: "<%= flash.error %>",
                     type: 'error',
                     layout: 'topRight',
-                    timeout: 700,
-                    animation: {
-        open : 'animated fadeInRight',
-        close: 'animated fadeOutRight'
-    }
-               
+                    timeout: 1500
                     
                 }).show();    
             <%} %>

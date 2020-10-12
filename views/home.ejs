@@ -1,86 +1,20 @@
+<link rel="stylesheet" href="/css/home.css">
+
 <div id="home-container">
     <section id="feed-posts">
-        <h4>Posts...</h4>
+        <h4>Posts</h4>
+        <% if(locals.user){ %>
         <form action="/posts/create" id="new-post-form" method="POST">
-            <textarea name="content" id=" textarea" cols="54" rows="3  " placeholder="What on your mind ?" style=" padding: 10px; border-top-left-radius: 20px;  border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; border-top-right-radius: 20px;
-                                overflow-y: hidden;"></textarea>
+            <textarea name="content" cols="30" rows="3" placeholder="Type Here..." required></textarea>
             <input type="submit" value="Post">
         </form>
+        <% } %>
 
-        <div id="post-list">
+        <div id="posts-list-container">
             <ul>
-                <% for(post of posts){%>
+                <% for(post of posts){ %>
 
-                <li>
-                    <p>
-
-                    </p>
-                    <img src="data:image/png;base64,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"
-                        alt="">
-                    <p style="display: inline-block; position: absolute; margin-top: 5px; margin-left: 5px; font-size:
-                    15px;">
-                        <%= post.user.name%>
-                    </p>
-                    <% if (locals.user && locals.user.id == post.user.id){ %>
-
-                    <a href="/posts/destroy/<%= post.id%>">Delete</a>
-
-
-                    <% } %>
-
-                    <p>
-                        <%= post.content %></p>
-
-
-
-                    <div class="post-comment">
-
-
-                        <form action="/comments/create" method="POST">
-                            <input type="text" name="content" placeholder="Write a comment" required>
-                            <input type="hidden" name="post" value="<%=post._id %>">
-                            <input type="submit" value="comment">
-                        </form>
-
-
-
-
-                        <div class="post-comments-list">
-                            <ul id="post-comments-<%= post._id %>">
-
-                                <% for (comment of post.comments){%>
-
-                                <p>
-                                    <img src="data:image/png;base64,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"
-                                        alt="" style="margin-left: -40px;">
-
-                                    <p style=" position: absolute; margin-top: -60px; margin-left: 12px;  font-size:
-                                    17px ; font-weight: 400;"> <%= comment.user.name %></p>
-
-
-                                    <p
-                                        style="margin-top: -10px; font-size: 22px; line-height: 30px ; font-weight: 400;">
-                                        <%= comment.content %>
-                                    </p>
-
-                                    <% if (locals.user && locals.user.id == comment.user.id){ %>
-
-
-
-                                    <a href="/comments/destroy/<%= comment.id%>">Delete</a>
-
-
-                                    <% } %>
-
-
-                                </p>
-                                <%} %>
-
-                            </ul>
-                        </div>
-                    </div>
-
-                </li>
+                <%- include('_post') -%>
 
                 <%} %>
             </ul>
@@ -88,18 +22,16 @@
     </section>
 
 
-
-
     <section id="user-friends">
-        <h4>Friends Lists</h4>
+        <h4>Friends</h4>
         <% for(u of all_users){%>
-
-
         <p>
             <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
         </p>
         <% } %>
     </section>
-
 </div>
+
+<!-- importing this script for creating the comments -->
+<script src="/js/home_post_comments.js"></script>
 <script src="/js/home_posts.js"></script>
